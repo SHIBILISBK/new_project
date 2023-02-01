@@ -1,12 +1,25 @@
+import 'dart:js';
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart.';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:new_project/homepage.dart';
 
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.green),
-    debugShowCheckedModeBanner: false,
-    home: Loginpage(),
-  ));
+  runApp(DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: Loginpage(),);
+  })
+  );
 }
 
 class Loginpage extends StatefulWidget {
@@ -77,7 +90,8 @@ class _LoginpageState extends State<Loginpage> {
                   if (password!.isEmpty || password.length < 6) {
                     return 'Not a Valid Password';
                   } else {
-                    return null;
+                   return null;
+
                   }
                 },
               ),
@@ -91,7 +105,15 @@ class _LoginpageState extends State<Loginpage> {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => HomePage()));
                     } else {
-                      return null;
+                      Fluttertoast.showToast(
+                          msg: "Login Failed",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          //timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );
                     }
                   },
                   child: const Text("LOGIN")),
