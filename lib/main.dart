@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:new_project/ListView_With_Builder.dart';
+import 'package:new_project/ListView_With_separator.dart';
 import 'second.dart';
 
 void main() {
   runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.green),
+    theme: ThemeData(primarySwatch: Colors.blueGrey),
     debugShowCheckedModeBanner: false,
     home: MainScreen(),
   ));
@@ -20,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
    Timer(Duration(seconds: 2), () {
-     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> LoginScreen()));
+     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> List_With_Separator()));
    });
   }
   @override
