@@ -15,8 +15,12 @@ class GridCount extends StatelessWidget{
          crossAxisCount:2,
        mainAxisSpacing: 20,
        crossAxisSpacing: 20,
-       children: List.generate(20, (index) => Padding(padding: EdgeInsets.all(8.0),
-         
+       children: List.generate(20, (index) => const Padding(padding: EdgeInsets.all(8.0),
+         child: Card(
+           child: Center(
+             child: Text("HELLO"),
+           ),
+         ),
        )),
      ),
    );
