@@ -71,7 +71,8 @@ class _LoginandSignupState extends State<LoginandSignup> {
                     }
                   },
                   child: const Text("  SIGN UP  ")),
-            )
+            ),
+
           ],
         ),
       ),
