@@ -23,13 +23,12 @@ class VegGrid extends StatelessWidget{
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(10.0),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,crossAxisSpacing: 5,mainAxisSpacing: 5
-      ),
-      itemCount: images.length,
-      itemBuilder: (BuildContext,int index){
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(10.0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: .80,
+            crossAxisCount: 3, crossAxisSpacing: 2, mainAxisSpacing: 2),
+        itemCount: images.length,
+        itemBuilder: (BuildContext, int index) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,26 +41,25 @@ class VegGrid extends StatelessWidget{
                     decoration: BoxDecoration(
                       boxShadow: const [
                         BoxShadow(
-                          blurRadius: 10,
-                          color: Colors.white10
-                        )
+                          color: Colors.green,
+                          blurRadius: 8,
+                        ),
                       ],
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                        fit: BoxFit.cover,
-                          image: NetworkImage(images[index]))
+                          fit: BoxFit.cover,
+                          image: NetworkImage(images[index])),
                     ),
                   ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Container(child: Center(child: Text(names[index]))),
                 ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(child:Column(children: [Text(names[index])],) ,)
             ],
           );
-      },
-    );
+        });
   }
 
 }

@@ -285,7 +285,7 @@ class Vegetables_grid extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.all(10.0),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: .80,
             crossAxisCount: 3, crossAxisSpacing: 2, mainAxisSpacing: 2),
         itemCount: images.length,
         itemBuilder: (BuildContext, int index) {

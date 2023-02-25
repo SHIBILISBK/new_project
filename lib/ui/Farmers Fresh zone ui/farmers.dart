@@ -55,12 +55,12 @@ class farmers extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    height: 30,
-                    width: 120,
+                    height: 20,
+                    width: 100,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.green),
                       color: Colors.green.shade100,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.all(Radius.circular(20))
                     ),
                     child: const Center(
                       child: Text("VEGETABLES",textAlign: TextAlign.center,
@@ -68,12 +68,12 @@ class farmers extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 30,
-                    width: 120,
+                    height: 20,
+                    width: 80,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
                         color: Colors.green.shade100,
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.all(Radius.circular(20))
                     ),
                     child: const Center(
                       child: Text("FRUITS",textAlign: TextAlign.center,
@@ -81,12 +81,12 @@ class farmers extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 30,
-                    width: 120,
+                    height: 20,
+                    width: 80,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
                         color: Colors.green.shade100,
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.all(Radius.circular(20))
                     ),
                     child: const Center(
                       child: Text("EXOTIC",textAlign: TextAlign.center,
@@ -94,12 +94,12 @@ class farmers extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 30,
-                    width: 120,
+                    height: 20,
+                    width: 100,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.green),
                         color: Colors.green.shade100,
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.all(Radius.circular(20))
                     ),
                     child: const Center(
                       child: Text("FRESH CUTS",textAlign: TextAlign.center,
@@ -116,7 +116,9 @@ class farmers extends StatelessWidget {
                 height: 300,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  image: DecorationImage(image: NetworkImage("https://images.unsplash.com/photo-1542223189-67a03fa0f0bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"))
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                      image: NetworkImage("https://images.unsplash.com/photo-1542223189-67a03fa0f0bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlZ2V0YWJsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"))
                 ),
               ),
             ),
@@ -134,18 +136,18 @@ class farmers extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Icon(Icons.timer),
+                        Icon(Icons.timer,color: Colors.green,),
                         Text("30MIN POLICY")
                       ],
                     ),
                     Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.my_location_rounded),
+                      Icon(Icons.my_location_rounded,color: Colors.green,),
                       Text("TRACEABILITY")
                     ],),
                     Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.food_bank),
+                      Icon(Icons.food_bank,color: Colors.green,),
                       Text("LOCAL SOURCING")
                     ],)
                   ],
@@ -163,6 +165,15 @@ class farmers extends StatelessWidget {
             child: VegGrid(),
           )
         ],
-    ));
+    ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.green,),label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,color: Colors.green,),label: "Cart"),
+        BottomNavigationBarItem(icon: Icon(Icons.person,color: Colors.green,),label: "Account"),
+      ],
+
+      ),
+    );
+
   }
 }
