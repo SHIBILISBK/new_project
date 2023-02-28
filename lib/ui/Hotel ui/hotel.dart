@@ -1,431 +1,116 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:raised_buttons/raised_buttons.dart';
 
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: htl1(),
-  ));
+void main(){
+  runApp(MaterialApp(home: HOTELUI(),));
 }
-
-class htl1 extends StatelessWidget {
+class HOTELUI extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            floating: true,
-            expandedHeight: 200,
-            leading: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Icon(Icons.menu),
-            ),
-            actions: const [
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Icon(Icons.favorite_border),
-              ),
-            ],
-            flexibleSpace: ListView(
-              children: [
-                const SizedBox(
-                  height: 70,
-                ),
-                const Center(
-
-                    child:
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child:
-                      Text(
-                        "SEARCH HERE",
-                        style: TextStyle(
-                            color: Colors.yellowAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    )),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, right: 40),
-                  child: Container(
-                    height: 70,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(100)),
-                    child: Center(
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: IconButton(
-                                  onPressed: () {}, icon: Icon(Icons.search)),
-                            ),
-                            hintText: "Type your location"),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(5)),
-                      height: 100,
-                      width: 120,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.hotel,
-                              color: Colors.white,
-                            ),
-                            Text("HOTEL", style: TextStyle(color: Colors.white))
-                          ]),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(5)),
-                      height: 100,
-                      width: 120,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.restaurant,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            "RESTAURANT",
-                            style: TextStyle(color: Colors.white),
+   return Scaffold(
+     body: Stack(
+       children: [
+         Align(alignment: Alignment.topLeft,
+         child: AppBar(backgroundColor: Colors.transparent,
+         elevation: 0,),),
+         Container(
+             height: 270,
+             width: 520,
+             child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkLjj9iVgzbDFKSaUu4qxKXacmTtEeksfnOA&usqp=CAU",fit: BoxFit.fill,)),
+         SingleChildScrollView(
+           padding: EdgeInsets.only(top: 200),
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               Text("Howard Johnson\n Plaza",style: TextStyle(color: Colors.white,fontSize: 28.0),),
+               Row(
+                 children: [
+                   Container(
+                     padding : EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+                       decoration: BoxDecoration(
+                         color: Colors.grey.shade200,
+                         borderRadius: BorderRadius.circular(20)
+                       ),
+                       child: Text("8.4/85 reviews",style: TextStyle(color: Colors.white),)),
+                   Spacer(),
+                   IconButton(
+                       color: Colors.white,
+                       icon: Icon(Icons.favorite_border),
+                       onPressed: (){})
+                 ],
+               ),
+               Container(
+                 padding: EdgeInsets.all(16),
+                 color: Colors.white,
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   mainAxisSize: MainAxisSize.min,
+                   children: [
+                      Row(
+                        children: [
+                          Expanded(child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.star,color: Colors.purple,),
+                                  Icon(Icons.star,color: Colors.purple,),
+                                  Icon(Icons.star,color: Colors.purple,),
+                                  Icon(Icons.star,color: Colors.purple,),
+                                  Icon(Icons.star_border,color: Colors.purple,),
+                                ],
+                              )
+                            ],
+                          )),
+                          Column(
+                            children: [
+                              Text("\$ 150"),
+                              Text("/per night")
+                            ],
                           )
                         ],
                       ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(5)),
-                      height: 100,
-                      width: 120,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.local_cafe,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            "CAFE",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              )),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage("https://thumbs.dreamstime.com/b/hotel-room-beautiful-orange-sofa-included-43642330.jpg"),
-                            fit: BoxFit.cover)),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          right: 10.0,
-                          bottom: 10,
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 25,
-                            width: 30,
-                            color: Colors.white,
-                            child: Text("\$40"),
-                          ),
-                        ),
-                        const Positioned(
-                            right: 10,
-                            top: 10,
-                            child: Icon(
-                              Icons.star_border,
-                              color: Colors.white,
-                            ))
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16, left: 16),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "Awesome room near LEH",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 5),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "LEH, Ladakh",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 8),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Text("(220 reviews)")
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage("https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
-                            fit: BoxFit.cover)),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          right: 10.0,
-                          bottom: 10,
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 25,
-                            width: 30,
-                            color: Colors.white,
-                            child: Text("\$60"),
-                          ),
-                        ),
-                        const Positioned(
-                            right: 10,
-                            top: 10,
-                            child: Icon(
-                              Icons.star_border,
-                              color: Colors.white,
-                            ))
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16, left: 16),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "Budget Friendly room near goa",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 5),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "Goa,Baga",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 8),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star_half,
-                          color: Colors.green,
-                        ),
-                        Text("(120 reviews)")
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://i0.wp.com/koloapp.in/magazine/wp-content/uploads/2022/11/image1-29.png"),
-                            fit: BoxFit.cover)),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          right: 10.0,
-                          bottom: 10,
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 25,
-                            width: 30,
-                            color: Colors.white,
-                            child: Text("\$60"),
-                          ),
-                        ),
-                        const Positioned(
-                            right: 10,
-                            top: 10,
-                            child: Icon(
-                              Icons.star_border,
-                              color: Colors.white,
-                            ))
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16, left: 16),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "Eco friendly room near Kedarnath",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 5),
-                    child: Row(
-                      children: const [
-                        Text(
-                          "KEDARNATH INDIA",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 8),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.green,
-                        ),
-                        Icon(
-                          Icons.star_half,
-                          color: Colors.green,
-                        ),
-                        Text("(100 reviews)")
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+                     SizedBox(
+                       height: 20,
+                     ),
+                     FittedBox(
+                       fit: BoxFit.fitWidth,
+                       child:Padding(
+                         padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 32),
+                         child: Padding(
+                           padding: const EdgeInsets.only(left: 150),
+                           child: ElevatedButton(
+                             onPressed: () {  },
+                             child: Text("     Book Now     ",style: TextStyle(color: Colors.white),
+                             ),
+                           ),
+                         ),
+                       )
+                       ),
+                     SizedBox(
+                       height: 20,
+                     ),
+                     Text("Description".toUpperCase()),
+                     Text("Take in this awe-inspiring city from Howard Johnson Plaza by Wyndham Dubai Deira, walking distance from Union Metro Station and six kilometers from Dubai International Airport (DXB). Located in the business district of Deira, we’re close to shopping at Al Ghurair Centre and Deira City Centre (reachable via our free shuttle). Easily access the Dubai Aquarium & Underwater Zoo in The Dubai Mall as well as Ski Dubai in the expansive Mall of the Emirates. Our contemporary hotel welcomes you with a fitness center, rooftop pool, and free parking. Enjoy a rooftop pool, gym, free WiFi, and on-site dining Stay satiated with our restaurant and bars; stay connected with free WiFi and a business center."),
+                   ],
+                 ),
+               )
+             ],
+           ),
+         ),
+         Align(
+           alignment:Alignment.bottomLeft,
+           child: BottomNavigationBar(
+             items: [
+               BottomNavigationBarItem(icon: Icon(Icons.search),label: "Search"),
+               BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: "Favorite"),
+               BottomNavigationBarItem(icon: Icon(Icons.settings),label: "Settings")
+             ],
+           ),
+         )
+       ],
+     ),
+   );
   }
+
 }
