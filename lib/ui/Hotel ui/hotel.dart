@@ -14,34 +14,34 @@ class HOTELUI extends StatelessWidget{
          Align(alignment: Alignment.topLeft,
          child: AppBar(backgroundColor: Colors.transparent,
          elevation: 0,),),
-         Container(
-             height: 270,
+         SizedBox(
+             height: 350,
              width: 520,
              child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkLjj9iVgzbDFKSaUu4qxKXacmTtEeksfnOA&usqp=CAU",fit: BoxFit.fill,)),
          SingleChildScrollView(
-           padding: EdgeInsets.only(top: 200),
+           padding: const EdgeInsets.only(top: 200),
            child: Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              children: [
-               Text("Howard Johnson\n Plaza",style: TextStyle(color: Colors.white,fontSize: 28.0),),
+               const Text("Howard Johnson\n Plaza",style: TextStyle(color: Colors.white,fontSize: 28.0),),
                Row(
                  children: [
                    Container(
-                     padding : EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+                     padding : const EdgeInsets.symmetric(vertical: 8,horizontal: 16),
                        decoration: BoxDecoration(
-                         color: Colors.grey.shade200,
+                         color: Colors.purple.shade200,
                          borderRadius: BorderRadius.circular(20)
                        ),
-                       child: Text("8.4/85 reviews",style: TextStyle(color: Colors.white),)),
-                   Spacer(),
+                       child: const Text("8.4/85 reviews",style: TextStyle(color: Colors.white),)),
+                   const Spacer(),
                    IconButton(
                        color: Colors.white,
-                       icon: Icon(Icons.favorite_border),
+                       icon: const Icon(Icons.favorite_border),
                        onPressed: (){})
                  ],
                ),
                Container(
-                 padding: EdgeInsets.all(16),
+                 padding: const EdgeInsets.all(16),
                  color: Colors.white,
                  child: Column(
                    crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +52,7 @@ class HOTELUI extends StatelessWidget{
                           Expanded(child: Column(
                             children: [
                               Row(
-                                children: [
+                                children: const [
                                   Icon(Icons.star,color: Colors.purple,),
                                   Icon(Icons.star,color: Colors.purple,),
                                   Icon(Icons.star,color: Colors.purple,),
@@ -63,14 +63,14 @@ class HOTELUI extends StatelessWidget{
                             ],
                           )),
                           Column(
-                            children: [
+                            children: const [
                               Text("\$ 150"),
                               Text("/per night")
                             ],
                           )
                         ],
                       ),
-                     SizedBox(
+                     const SizedBox(
                        height: 20,
                      ),
                      FittedBox(
@@ -81,17 +81,17 @@ class HOTELUI extends StatelessWidget{
                            padding: const EdgeInsets.only(left: 150),
                            child: ElevatedButton(
                              onPressed: () {  },
-                             child: Text("     Book Now     ",style: TextStyle(color: Colors.white),
+                             child: const Text("     Book Now     ",style: TextStyle(color: Colors.white),
                              ),
                            ),
                          ),
                        )
                        ),
-                     SizedBox(
+                     const SizedBox(
                        height: 20,
                      ),
                      Text("Description".toUpperCase()),
-                     Text("Take in this awe-inspiring city from Howard Johnson Plaza by Wyndham Dubai Deira, walking distance from Union Metro Station and six kilometers from Dubai International Airport (DXB). Located in the business district of Deira, we’re close to shopping at Al Ghurair Centre and Deira City Centre (reachable via our free shuttle). Easily access the Dubai Aquarium & Underwater Zoo in The Dubai Mall as well as Ski Dubai in the expansive Mall of the Emirates. Our contemporary hotel welcomes you with a fitness center, rooftop pool, and free parking. Enjoy a rooftop pool, gym, free WiFi, and on-site dining Stay satiated with our restaurant and bars; stay connected with free WiFi and a business center."),
+                     const Text("Take in this awe-inspiring city from Howard Johnson Plaza by Wyndham Dubai Deira, walking distance from Union Metro Station and six kilometers from Dubai International Airport (DXB). Located in the business district of Deira, we’re close to shopping at Al Ghurair Centre and Deira City Centre (reachable via our free shuttle). Easily access the Dubai Aquarium & Underwater Zoo in The Dubai Mall as well as Ski Dubai in the expansive Mall of the Emirates. Our contemporary hotel welcomes you with a fitness center, rooftop pool, and free parking. Enjoy a rooftop pool, gym, free WiFi, and on-site dining Stay satiated with our restaurant and bars; stay connected with free WiFi and a business center."),
                    ],
                  ),
                )
@@ -101,7 +101,7 @@ class HOTELUI extends StatelessWidget{
          Align(
            alignment:Alignment.bottomLeft,
            child: BottomNavigationBar(
-             items: [
+             items: const [
                BottomNavigationBarItem(icon: Icon(Icons.search),label: "Search"),
                BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: "Favorite"),
                BottomNavigationBarItem(icon: Icon(Icons.settings),label: "Settings")
