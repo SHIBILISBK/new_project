@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/ui/TOURISM%20APP%20UI/mainpage.dart';
-import 'package:new_project/ui/TOURISM%20APP%20UI/secondscreen.dart';
+import 'package:new_project/ui/TOURISM%20APP%20UI/tourism%20app%20ui%201/mainpage.dart';
+import 'package:new_project/ui/TOURISM%20APP%20UI/tourism%20app%20ui%201/secondscreen.dart';
 
 void main() {
   runApp(MaterialApp(
