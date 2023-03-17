@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:new_project/Login%20page.dart';
 import 'package:new_project/ui/Login%20and%20Signup/login.dart';
 
 void main() {
