@@ -8,45 +8,36 @@ void main(){
   runApp(MaterialApp(home: Playlist(),debugShowCheckedModeBanner: false,));
 }
 class Playlist extends StatelessWidget{
-  get kDefaultPadding => null;
-
   @override
   Widget build(BuildContext context) {
    return Scaffold(backgroundColor: Colors.black,
-     body: CustomScrollView(
-       slivers: [
-         SliverAppBar(
-           backgroundColor: Colors.black,
-           floating: true,
-           pinned: true,
-           centerTitle:false,
-           title: Row(
-             children: [
-               Padding(padding: EdgeInsets.only(left: 150),
-               child: Text("Playlists",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.pink[200]),),
-               )
-             ],
-           ),
-           bottom: AppBar(
-             backgroundColor: Colors.black,
-             title: Container(
-               width: double.infinity,
-               height: 40,
-               color: Colors.grey[600],
-               child: TextField(
-                 decoration: InputDecoration(
-                   hintText: 'Search ...',
-                   hintStyle: TextStyle(color: Colors.pink[200]),
-                   suffixIcon: Icon(Icons.search_outlined,color: Colors.pink[200],)
-                 ),
+     body: ListView(
+       children: [
+         Padding(padding: EdgeInsets.only(top: 20),
+         child: Center(child: Text("Playlist",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.pink[200]),)),
+         ),
+         Padding(padding: EdgeInsets.only(top: 20,left: 20,right: 20),
+           child: Container(
+             decoration: BoxDecoration(
+               borderRadius: BorderRadius.circular(50),color: Colors.black,
+               border: Border.all(color: Colors.grey)
+             ),
+             child: TextField(
+               decoration: InputDecoration(
+                 contentPadding: EdgeInsets.only(left: 20),
+                 labelText: 'Search...',
+                 labelStyle: TextStyle(color: Colors.pink[200]),
+                 suffixIcon: Icon(Icons.search,color: Colors.pink[200],)
                ),
-             )
+             ),
            ),
          ),
-         SliverList(delegate: SliverChildListDelegate([
-           GridView(
-             shrinkWrap: true,
-             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 3),
+         Container(
+           height: 500,
+             width: double.infinity,
+             child:GridView(
+               shrinkWrap: true,
+               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 3),
              children: [
                Padding(
                  padding: const EdgeInsets.all(20),
@@ -102,23 +93,24 @@ class Playlist extends StatelessWidget{
                    ),
                  ),
                ),
-             ],
-           ),
-         ]))
-         ],
-         ),
-     bottomNavigationBar: CurvedNavigationBar(
-         backgroundColor: Colors.black,
-         items: <Widget>[
-           FaIcon(FontAwesomeIcons.home,size: 20,color: Colors.pink[200],),
-           FaIcon(FontAwesomeIcons.search,size: 20,color: Colors.pink[200],),
-           FaIcon(FontAwesomeIcons.list,size: 20,color: Colors.pink[200],),
-           FaIcon(FontAwesomeIcons.peopleLine,size: 20,color: Colors.pink[200],),
-         ],
-         onTap: (index){
+             ],),
+        )
+       ],
 
-     },
      ),
+     bottomNavigationBar: CurvedNavigationBar(
+       backgroundColor: Colors.black,
+       items: <Widget>[
+         FaIcon(FontAwesomeIcons.home,size: 20,color: Colors.pink[200],),
+         FaIcon(FontAwesomeIcons.search,size: 20,color: Colors.pink[200],),
+         FaIcon(FontAwesomeIcons.list,size: 20,color: Colors.pink[200],),
+         FaIcon(FontAwesomeIcons.peopleLine,size: 20,color: Colors.pink[200],),
+       ],
+       onTap: (index){
+
+       },
+     ),
+
    );
   }
 
