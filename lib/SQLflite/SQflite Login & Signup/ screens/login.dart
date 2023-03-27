@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/%20screens/Admin.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/%20screens/Home.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/%20screens/Login_signup.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/db/SQLhelper.dart';
 import 'package:new_project/UIIIiiiiisssss/Login%20and%20Signup/signup.dart';
 
 class Login extends StatefulWidget {
@@ -10,12 +14,32 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    var formkey = GlobalKey<FormState>();
+    final TextEditingController conemail = TextEditingController();
+    final TextEditingController conpass = TextEditingController();
+
+    void logincheck(String email,String password) async {
+      if (email == 'admin@gmail.com' && password == '123456'){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdminHome()));
+      }else{
+        var data = await SQLhelper.CheckLogin(email,password);
+        if(data.isNotEmpty){
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home(data: data,)));
+          print('Login Success');
+        }else if(data.isEmpty){
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Login_Signup()));
+          print('Login Faild');
+        }
+      }
+    }
+
     bool hidepass = true;
     return Scaffold(
       appBar: AppBar(
         title: const Text("LOGIN PAGE"),
       ),
       body: Form(
+        key: formkey,
         child: ListView(
           children: [
             const Center(
@@ -29,6 +53,7 @@ class _Login extends State<Login> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextFormField(
+                controller: conemail,
                 decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.email),
                     labelText: "Email",
@@ -48,6 +73,7 @@ class _Login extends State<Login> {
             Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextFormField(
+                  controller: conpass,
                   obscureText: hidepass,
                   obscuringCharacter: "*",
                   decoration: InputDecoration(
@@ -85,6 +111,13 @@ class _Login extends State<Login> {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 onPressed: () {
+                  final valid = formkey.currentState!.validate();
+
+                  if (valid) {
+
+                    logincheck(conemail.text, conpass.text);
+
+                  } else {}
                 },
                 child: const Text("LOGIN"),
               ),

@@ -1,12 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/%20screens/Login_signup.dart';
+import 'package:new_project/SQLflite/SQflite%20Login%20&%20Signup/db/SQLhelper.dart';
+
 import 'package:new_project/UIIIiiiiisssss/Login%20and%20Signup/login.dart';
 void main (){
   runApp(MaterialApp(home: Signup(),));
 }
 class Signup extends StatelessWidget {
+  var formkey1 = GlobalKey<FormState>();
+  var conname = TextEditingController();
+  var conemail = TextEditingController();
+  var pass = TextEditingController();
+  var cpass = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
+    void Addnewuser(String name, String email, String password) async {
+      var id = await SQLhelper.AddNewUser(name, email, password);
+      if(id != null){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login()));
+      }else{
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login_Signup()));
+      }
+    }
     return Scaffold(
       body: SingleChildScrollView(
       child: Form(
@@ -96,7 +113,7 @@ class Signup extends StatelessWidget {
       obscuringCharacter: '*',
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.lock),
-          labelText: "Confirm Password",
+          labelText: "Conform Password",
           border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(5)))),
     ),
@@ -110,6 +127,15 @@ class Signup extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30.0),
                         ))),
                 onPressed: () {
+                  final valid1 = formkey1.currentState!.validate();
+                  if(valid1){
+                    /// kodutha data sheriyanekil data base ilek uplaod avan
+                    Addnewuser(conname.text, conemail.text, pass.text);
+                  }else{
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        action: SnackBarAction(label: 'Undo', onPressed: (){}),
+                        content: const Text("Invalid username/password")));
+                  }
                 },
                 child: const Text(
                   "Sign Up",
@@ -118,7 +144,7 @@ class Signup extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Alredy have an account?"),
+                const Text(" I Already have an account?"),
                 TextButton(
                     onPressed: () {
                       Navigator.push(

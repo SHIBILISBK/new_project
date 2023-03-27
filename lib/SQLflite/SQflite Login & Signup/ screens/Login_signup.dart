@@ -36,7 +36,7 @@ class _Login_SignupState extends State<Login_Signup> {
               child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.red),
-                    minimumSize: MaterialStateProperty.all(Size(230, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(230, 50)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -45,13 +45,13 @@ class _Login_SignupState extends State<Login_Signup> {
                   ),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
-                  }, child: Text("Login",style: TextStyle(color: Colors.white),)),
+                  }, child: const Text("Login",style: TextStyle(color: Colors.white),)),
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    minimumSize: MaterialStateProperty.all(Size(230, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(230, 50)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
@@ -61,7 +61,7 @@ class _Login_SignupState extends State<Login_Signup> {
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> Signup()));
-                }, child: Text("Sign Up",style: TextStyle(color: Colors.white),)),
+                }, child: const Text("Sign Up",style: TextStyle(color: Colors.white),)),
           ],
         ),
       ),
