@@ -98,7 +98,9 @@ class Playlist extends StatelessWidget{
 
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.black,
+        index: 1,
+        color: Colors.black,
+        backgroundColor: Colors.white,
         items: <Widget>[
           FaIcon(FontAwesomeIcons.home,size: 20,color: Colors.pink[200],),
           FaIcon(FontAwesomeIcons.search,size: 20,color: Colors.pink[200],),
