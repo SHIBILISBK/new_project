@@ -44,7 +44,12 @@ class _MyTodoState extends State<MyTodo> {
       tasks = task_from_hive.reversed.toList(); // reversed used for to sort in items in latest to oldest
     });
   }
-
+  // read a single data from hive
+  Map<String,dynamic> readData(int key) {
+    final sdata = my_task_box.get(key);
+    return sdata;
+  }
+// update task
  Future <void> updateTask(int itemkey, Map<String, String> uptask) async{
     await my_task_box.put(itemkey, uptask);
     fetchTask();
