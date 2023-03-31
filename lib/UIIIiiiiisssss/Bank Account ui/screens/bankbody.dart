@@ -12,7 +12,7 @@ class BankBody extends StatefulWidget {
 }
 
 class _BankBodyState extends State<BankBody> {
-  List listile = [
+  List name = [
     "My Account",
     "Load eSawa",
     "Payment",
@@ -20,7 +20,7 @@ class _BankBodyState extends State<BankBody> {
     "Sheduled Pyment",
     "Scan to Pay"
   ];
-  List iconsbank = [
+  List icons = [
     "https://cdn1.iconfinder.com/data/icons/digital-marketing-red/64/DISTRIBUTION_NETWORK-connector-mobile_phone-communications-share-512.png",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMFm2xtkBO1z9wxS8yAGOeiGdXjtd21uNqZQ&usqp=CAU",
     "https://cdn1.iconfinder.com/data/icons/fintech-red/64/MOBILE_PAYMENT-online_payment-money-smartphone-transfer-512.png",
@@ -48,10 +48,10 @@ class _BankBodyState extends State<BankBody> {
                     Image(
                         height: 50,
                         width: 50,
-                        image:NetworkImage(iconsbank[index])),
+                        image:NetworkImage(icons[index])),
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
-                      child: Text(listile[index],style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
+                      child: Text(name[index],style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
