@@ -1,9 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_project/Fire%20Baseeeeee/Home.dart';
 import 'package:new_project/Fire%20Baseeeeee/Signup.dart';
 import 'package:new_project/Fire%20Baseeeeee/firebase%20Helper.dart';
 
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  // fetching the current user
+  User? user = FirebaseAuth.instance.currentUser;
+  runApp(MaterialApp(
+    home: user == null? FireLogin() : Hhome(),));
+}
 class FireLogin extends StatefulWidget {
 
 

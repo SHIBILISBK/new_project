@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:new_project/Fire%20Baseeeeee/Login.dart';
 import 'package:new_project/Fire%20Baseeeeee/firebase%20Helper.dart';
 
-void main()async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MaterialApp(home: registration(),));
-}
 class registration extends StatefulWidget{
   @override
   State<registration> createState() => registrationState();
