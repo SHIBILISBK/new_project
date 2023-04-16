@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:new_project/ui/TOURISM%20APP%20UI/tourism%20app%20ui%202/tourism%20datas.dart';
+import 'package:new_project/UIIIiiiiisssss/TOURISM%20APP%20UI/tourism%20app%20ui%202/tourism%20datas.dart';
+
 
 class TourismPpage extends StatelessWidget{
   @override

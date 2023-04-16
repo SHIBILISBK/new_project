@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:new_project/ui/TOURISM%20APP%20UI/tourist%20app%20ui%201/page3.dart';
+import 'package:new_project/UIIIiiiiisssss/TOURISM%20APP%20UI/tourist%20app%20ui%201/page3.dart';
+
 
 import 'Page2.dart';
 

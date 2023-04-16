@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/ui/whatsapp%20clone%20ui/call.dart';
-import 'package:new_project/ui/whatsapp%20clone%20ui/chats.dart';
-import 'package:new_project/ui/whatsapp%20clone%20ui/community.dart';
-import 'package:new_project/ui/whatsapp%20clone%20ui/status.dart';
+import 'package:new_project/UIIIiiiiisssss/whatsapp%20clone%20ui/status.dart';
+
+import 'call.dart';
+import 'chats.dart';
+import 'community.dart';
 
 
 void main() {
