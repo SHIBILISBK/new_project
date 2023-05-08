@@ -64,6 +64,11 @@ dependencies:
   http:
   cached_network_image:
   flutter_staggered_grid_view:
+  dio:
+  internet_connection_checker:
+  top_snackbar_flutter:
+  scrollable_positioned_list:
+
 
 
 
